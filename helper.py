@@ -282,4 +282,8 @@ def query_point_creator(q1, q2):
     # bow feature for q2
     q2_bow = cv.transform([q2]).toarray()
 
+<<<<<<< HEAD
     return np.hstack((np.array(input_query).reshape(1, 17), q1_bow, q2_bow))
+=======
+    return np.hstack((np.array(input_query).reshape(1, 17), q1_bow, q2_bow))
+>>>>>>> 75a1750a29499b951cddc9bbe6a237d77e59ca50

@@ -1,4 +1,5 @@
 import streamlit as st
+<<<<<<< HEAD
 import pickle
 import numpy as np
 import re
@@ -122,11 +123,20 @@ except FileNotFoundError:
 
 # --- Streamlit App Interface ---
 st.title('Duplicate Question Detector')
+=======
+import helper
+import pickle
+
+model = pickle.load(open('model.pkl','rb'))
+
+st.header('Duplicate Question Pairs')
+>>>>>>> 75a1750a29499b951cddc9bbe6a237d77e59ca50
 
 q1 = st.text_input('Enter question 1')
 q2 = st.text_input('Enter question 2')
 
 if st.button('Find'):
+<<<<<<< HEAD
     if q1 and q2:
         try:
             # Create the feature vector
@@ -146,3 +156,12 @@ if st.button('Find'):
         st.warning("Please enter both questions.")
         
             
+=======
+    query = helper.query_point_creator(q1,q2)
+    result = model.predict(query)[0]
+
+    if result:
+        st.header('Duplicate')
+    else:
+        st.header('Not Duplicate')
+>>>>>>> 75a1750a29499b951cddc9bbe6a237d77e59ca50
